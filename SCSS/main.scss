@@ -23,39 +23,22 @@ $font-sm: 20px;
     }
 }
 
-//Mixing without parameter/argument
-@mixin headingStyles {
-    color: $color-secondary;
+.heading {
+    color: $color-primary;
+    font-size: $font-lg;
+    background-color: $color-secondary;
     text-align: center;
 }
 
-//Mixing with parameter/argument
-@mixin headingStyles($fontSize){
-    font-size: $fontSize;
-    color: $color-secondary;
-    text-align: center;
-}
+h1 {
+    @extend .heading;
 
-//Mixing with multiple parameter/argument
-@mixin transition($param...){
-    transition: $param;
-}
-
-.banner h1 {
-    // $color-secondary: red !global; //Global variables within scopes
-    // font-size: $font-lg;
-    // @include headingStyles();
-    @include headingStyles($font-lg);
+    &:hover {
+        background-color: green;
+    }
 }
 
 .footer h3 {
-    // font-size: $font-md;
-    // @include headingStyles();
-    @include headingStyles($font-md);
-    @include transition(color .5s, background-color 1s);
-
-    &:hover{
-        color: $color-tertiary;
-        background-color: $color-primary;
-    }
+    @extend .heading;
+    @extend h1;
 }
