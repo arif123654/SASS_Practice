@@ -1,5 +1,24 @@
-body {
-  background-color: green; }
+.nav {
+  background-color: orange; }
+  .nav ul li {
+    list-style: none; }
+  .nav a {
+    text-decoration: none;
+    font-size: 20px;
+    color: gray; }
+    .nav a:hover {
+      color: royalblue; }
 
-.text_one {
-  color: aqua; }
+.banner h1 {
+  font-size: 40px;
+  color: gray;
+  text-align: center; }
+
+.footer h3 {
+  font-size: 30px;
+  color: gray;
+  text-align: center;
+  transition: color 0.5s, background-color 1s; }
+  .footer h3:hover {
+    color: royalblue;
+    background-color: orange; }

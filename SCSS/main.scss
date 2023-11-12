@@ -1,7 +1,61 @@
-body {
-    background-color: green;
+$color-primary: orange;
+$color-secondary: gray;
+$color-tertiary: royalblue;
+
+$font-lg: 40px;
+$font-md: 30px;
+$font-sm: 20px;
+
+.nav {
+    background-color: $color-primary;
+
+    ul li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        font-size: $font-sm;
+        color: $color-secondary;
+
+        &:hover {
+            color: $color-tertiary;
+        }
+    }
 }
 
-.text_one {
-    color: aqua;
+//Mixing without parameter/argument
+@mixin headingStyles {
+    color: $color-secondary;
+    text-align: center;
+}
+
+//Mixing with parameter/argument
+@mixin headingStyles($fontSize){
+    font-size: $fontSize;
+    color: $color-secondary;
+    text-align: center;
+}
+
+//Mixing with multiple parameter/argument
+@mixin transition($param...){
+    transition: $param;
+}
+
+.banner h1 {
+    // $color-secondary: red !global; //Global variables within scopes
+    // font-size: $font-lg;
+    // @include headingStyles();
+    @include headingStyles($font-lg);
+}
+
+.footer h3 {
+    // font-size: $font-md;
+    // @include headingStyles();
+    @include headingStyles($font-md);
+    @include transition(color .5s, background-color 1s);
+
+    &:hover{
+        color: $color-tertiary;
+        background-color: $color-primary;
+    }
 }
